@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import style from "./newTodo.module.css";
-const NewTodo = () => {
+const NewTodo = (props) => {
   const [todo, setTodo] = useState({ title: "", desc: "" });
 
   const handleChange = (event) => {
@@ -11,8 +11,8 @@ const NewTodo = () => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("form is submitted");
-    console.log(todo);
+
+    props.onAddTodo(todo);
     setTodo({ title: "", desc: "" });
   };
   return (
